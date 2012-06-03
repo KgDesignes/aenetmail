@@ -47,7 +47,10 @@ namespace AE.Net.Mail {
     public event EventHandler<MessageEventArgs> NewMessage {
       add {
         _NewMessage += value;
-        IdleStart();
+        if (!_Idling)
+        {
+            IdleStart();
+        }
       }
       remove {
         _NewMessage -= value;
@@ -60,7 +63,10 @@ namespace AE.Net.Mail {
     public event EventHandler<MessageEventArgs> MessageDeleted {
       add {
         _MessageDeleted += value;
-        IdleStart();
+        if (!_Idling)
+        {
+            IdleStart();
+        }
       }
       remove {
         _MessageDeleted -= value;
