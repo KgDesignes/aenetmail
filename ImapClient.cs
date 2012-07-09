@@ -292,6 +292,11 @@ namespace AE.Net.Mail {
           m = Regex.Match(response, @" FLAGS \((.*?)\)");
           if (m.Groups.Count > 1)
             x.SetFlags(m.Groups[1].ToString());
+          m = Regex.Match(response, @"\[UIDNEXT (.+?)\]");
+
+          if (m.Groups.Count > 1)
+              x.NextUID = m.Groups[1].ToString();
+
           response = GetResponse();
         }
         _SelectedMailbox = mailbox;

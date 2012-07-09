@@ -10,6 +10,7 @@ namespace AE.Net.Mail.Imap {
         public int NumNewMsg { get; internal set; }
         public int NumMsg { get; internal set; }
         public int NumUnSeen { get; internal set; }
+        public string NextUID { get; internal set; }
         public string[] Flags { get; internal set; }
         public bool IsWritable { get; internal set; }
 
